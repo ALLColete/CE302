@@ -1,0 +1,142 @@
+---
+title: "Lista 1"
+author: "AleC"
+format: html
+editor: visual
+---
+
+# lista de exercícios: Formatação de texto {#sec-01}
+
+1.  fazer um titulo nível 1
+
+    -   feito logo acima
+
+2.  Escreva um parágrafo de texto normal.
+
+3.  Destaque uma palavra em itálico.
+
+4.  Deixe outra palavra em negrito.
+
+5.  Combine itálico e negrito em uma mesma palavra.
+
+6.  Crie uma lista não ordenada com três itens.
+
+7.  Faça uma lista ordenada com quatro itens.
+
+8.  Crie um link para o site do Google.
+
+9.  Insira uma imagem que esteja no mesmo diretório que seu arquivo.
+
+10. Insira uma imagem da internet.
+
+11. Crie um bloco de citação.
+
+## Resposta dos exercícios 2 ao 5
+
+"Ser ou não ser eis a questão", foi uma frase icônica dita pelo grande neurocirurgião conhecido como Tiririca, dentro da sua área de pesquisa fomentada pela *Nintendo*, isso no Século X²VI época marcada pelo grande avanço na ***culinária*** e pirataria. [^1]
+
+[^1]: estou confuso
+
+Portanto concluo com toda a certeza sobre o que foi dito, **não acredite em tudo o que você vê na internet**
+
+## Resposta dos itens 6 e 7
+
+Pontos chave sobre o texto acima \* Tiririca foi neurocirurgião \* Século X²VI foi marcado pela evolução da culinária e pirataria \* Não acredite nos últimos dois pontos
+
+Pontos mais importantes sobre o texto: 1. "Ser ou não ser eis a questão" 2. Tiririca 3. Nintendo 4. Não acredite em tudo que você vê por ai
+
+## Resposta dos itens 8 ao 11
+
+Para mais informações acesse o [link clicando aqui](https://www.google.com/)\
+![conhecimento](laranja.jpeg) ![quase enlouqueci](https://preview.redd.it/lcdxmpjd8acx.png?auto=webp&s=3f6dc08e83f0cdc020267355229111b15df2e068)\
+![Alt](https://lh6.googleusercontent.com/Bu-pRqU_tWZV7O3rJ5nV1P6NjqFnnAs8kVLC5VGz_Kf7ws0nDUXoGTc7pP87tyUCfu8VyXi0YviIm7CxAISDr2lJSwWwXQxxz98qxVfMcKTJfLPqbcfhn-QEeOowjrlwX1LYDFJN)
+
+> na febre dos meus desejos me arrependi com o que é efêmero e então, certamente, mirei o eterno com todo o meu coração
+
+## exercícios do 11 ao 17
+
+11. Crie um sub-título de nível 2.
+
+12. Faça uma divisão horizontal.
+
+13. Crie uma lista aninhada com pelo menos dois níveis.
+
+14. Crie um trecho de código online.
+
+15. Insira um bloco de código com realce de sintaxe para R.
+
+16. Crie um link para uma seção dentro do próprio documento.
+
+17. Liste os itens a seguir em uma tabela com duas colunas: "Item" e "Quantidade".
+
+```         
+-   Maçãs, 5
+    
+-   Bananas, 3
+    
+-   Laranjas, 8
+```
+
+fazer uma divisão é algo complicado
+
+------------------------------------------------------------------------
+
+pois a divisão é composta por várias operações
+
+-   item 1.
+-   
+-   
+    -   item 1.1
+-   
+-   item 2.
+-   inexistente
+
+acho que estou meio confuso vamos para o [inicio](#sec-01).
+
+```{r, echo=TRUE}
+ a <- c(rpois(5, lambda = 3))
+print(mean(a))
+```
+
+| fruta   | quantidade |
+|---------|------------|
+| maça    | 5          |
+| banana  | 3          |
+| laranja | 8          |
+
+# Outras Funcionalidades
+
+```         
+Crie uma nota de rodapé com uma explicação.
+
+Crie uma lista de tarefas com três itens.
+
+Inclua uma citação de um livro ou autor.
+
+Crie um bloco de código com várias linhas usando realce de sintaxe.
+
+Destaque um trecho de texto como código, sem realce de sintaxe.
+
+Crie um link automático para um URL.
+
+Liste os passos de um tutorial usando sub-listas.
+
+Incorpore um vídeo do YouTube.
+
+Insira um elemento de áudio.
+
+Crie um texto com sublinhado.
+
+Insira um emoji no seu texto (por exemplo, um coração ♥).
+
+Crie um alerta colorido usando callout.
+```
+
+-   [x] estar atrasado
+-   [ ] remover o atraso
+-   [ ] estar adiantado
+
+
+> penso logo existo
+
+Rene descartes
