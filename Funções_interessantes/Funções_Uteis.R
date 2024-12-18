@@ -224,3 +224,91 @@ assimetria_de_Pearson <- function(vetor){
   resultado <- numerador/denominador
   return(resultado)
 }
+
+
+
+
+
+# Numerologias ------------------------------------------------------------
+
+# o exercício pede que seja feita a função que calcula a numerologia individual 
+# ou de casal, com formulas:
+# 
+# individual: Ni = Nb(X**4 + 7 · X + 2). 
+# 
+# casal: Nc = Nb(X**2 + Y**7)
+# 
+# em que
+# 
+# Ni = numerologia individual | Nc = numerologia de casal | Nb = numero base
+# 
+# o numero base é basicamente a soma de todos os numeros da data do nascimento
+# X e Y representam as numerologias dos individuos
+# 
+# o objetivo repito: fazer uma função que calcula a numerologia individual ou de casal
+
+
+
+# * Numero base -----------------------------------------------------------
+
+#  para simplificar na hora ne calcular as numerologias, é altamente recomendado
+#  que seja feita uma função auxiliar para calcular o numero base
+
+require(tidyverse)
+
+numero_base <- function(nasc){
+  nasc <- nasc %>%
+    as.character() %>% 
+    str_extract_all(., pattern = '[0-9]', simplify = TRUE) %>% 
+    t() %>% 
+    .[,1] %>% 
+    c()
+  
+  
+  while(length(nasc) != 1){
+    nasc <- as.numeric(nasc)
+    nasc <- sum(nasc)
+    if (nasc[1] >= 10){
+      nasc <-  nasc %>%
+        as.character() %>% 
+        str_extract_all(., pattern = '[0-9]', simplify = TRUE) %>% 
+        t() %>% 
+        .[,1] %>% 
+        c()
+    }
+  }
+  return(nasc)
+}
+
+# Essa função basicamente
+# 1. extrai apenas os numeros da data em string
+# 2. converte a matriz obtida para um vetor, tem que fazer a transposta da matriz
+# pois convertendo uma linha para um vetor torna a linha como um elemento unico
+# 3. converter cada elemento na classe numerica e faz o somatorio
+# 4. caso o numero seja maior ou igual a 10 repete-se o passo 1. até o 3.
+# 5. devolve o numero base
+
+
+
+# * Numerologia individual e de casal -------------------------------------
+
+Numerologia_individual_ou_casal <- function(data1, data2 = NULL){
+  
+  # individual: Ni = Nb(X**4 + 7 · X + 2). 
+  
+  if(is.null(data2) == TRUE){
+    X <- numero_base(data1)
+    expressão_d_parenteses <- (X**4)+(7*X)+2
+    Ni <- numero_base(expressão_d_parenteses)
+    return(Ni)
+  } else {
+    
+    # casal: Nc = Nb(X**2 + Y**7)
+    
+    X <- numero_base(data1)
+    Y <- numero_base(data2)
+    dentro_parenteses <- (X**2)+(Y**7)
+    Nc <- numero_base(dentro_parenteses)
+    return(Nc)
+  }
+}

@@ -372,8 +372,8 @@ moma_art_unidos %>%
 ####3. Para esse exercício você deverá utilizar os banco de dados `refugiados_pais.csv.gz` e `refugiados.csv.gz`. Considere apenas observações completas.####
 
 
-R_pais <- fread('Dados/Dados/refugiados_pais.csv.gz')
-refug <- fread('Dados/Dados/refugiados.csv.gz')
+R_pais <- fread('Funções_interessantes/Dados/refugiados_pais.csv.gz')
+refug <- fread('Funções_interessantes/Dados/refugiados.csv.gz')
 
 
 # como no dicionario temos a informação 'desconhecido', terei que remover ela
@@ -464,15 +464,13 @@ tabela_refugiados_com_dicionario %>%
 #   c. Crie a matriz de migração intercontinental (de -> para) de refugiados do ano 2005.
 
 
-tabel_filtrada <- tabela_refugiados_com_dicionario %>% 
-  select(região_origem, região_destino) %>% 
-  filter(região_origem != região_destino)
+tabela_refugiados_com_dicionario %>% 
+  group_by(região_origem, região_destino) %>% 
+  summarise(total_migrantes = sum(refugiados)) %>% 
+  pivot_wider(names_from = região_destino, values_from = total_migrantes, values_fill = 0) %>% 
+  print()
 
 
-head(tabel_filtrada)
-
-tabel_filtrada <- as.matrix(tabel_filtrada)
-tabel_filtrada
 
 
 
@@ -520,3 +518,36 @@ tabela_refugiados_com_dicionario %>%
   filter(ano == 2005 & nome_destino %in% tabela_D) %>%
   group_by(nome_destino) %>% 
   summarise(total = sum(refugiados))
+
+
+
+
+
+
+# Exercício extra ---------------------------------------------------------
+
+# 4. (3pontos) Para esse exercício você deverá utilizar os banco de dados refugiados_pais.csv.gz
+# e refugiados.csv.gz. Considere apenas observações completas.
+# verifique se é verdade
+# A matriz de migração [origem, destino] intercontinental do ano 2006 é dada por:
+# 
+#  Região  |  Africa  |  Americas  |  Asia  |  Europe  |  Oceania
+#  Africa  |  2507581 |   262745   |  98175 |  250070  |   37124
+#  Americas|     0    |   150149   |    0   |  14850   |   174
+#   Asia   |  76780   |   308706   | 4411284|  664075  |   42704
+#  Europe  |    94    |   306672   |  7816  |  454237  |   3423
+#  Oceania |     0    |    1679    |    0   |    92    |   59
+#  
+
+
+
+# Filtrar para o ano de 2006
+tb4_2006 <- tabela_refugiados_com_dicionario %>% filter(ano == 2006) # troquei o tb4 pela variavel do meu codigo
+
+# Criar a matriz de migração [origem, destino]
+matriz_migracao_2006 <- tb4_2006 %>%
+  group_by(região_origem, região_destino) %>%
+  summarise(total_migrantes = sum(refugiados)) %>%
+  pivot_wider(names_from = região_destino, values_from = total_migrantes, values_fill = 0) %>% 
+  as.matrix()
+matriz_migracao_2006
